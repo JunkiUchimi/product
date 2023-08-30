@@ -1,0 +1,18 @@
+.accordion {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-btn {
+    background-color: #f1f1f1;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+}
+
