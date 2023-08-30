@@ -13,10 +13,7 @@ use App\Http\Controllers\PostController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/a', function () {
-    return view('welcome');
-});
+Route::get('/posts/{post}', [PostController::class ,'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,4 +28,5 @@ Route::get('/', [PostController::class, 'index'])->name('index');
 Route::get('/posts/form', function () {
     return view('/posts/form');
 });
+
 require __DIR__.'/auth.php';
