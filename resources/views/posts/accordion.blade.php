@@ -6,6 +6,7 @@
     
 </head>
 <body>
+    
     <div class="accordion">
         <!-- アコーディオンセクションをここに追加 -->
         <button class="accordion-btn">質問1</button>

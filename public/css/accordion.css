@@ -7,12 +7,17 @@
     background-color: #f1f1f1;
     color: #333;
     cursor: pointer;
-    padding: 10px;
-    text-align: left;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    width: 600px; /* 幅を設定 */
+    height: 50px; /* 高さを設定 */
+    margin:0 auto;
 }
 
 .accordion-content {
     display: none;
     padding: 10px;
+    width: 500px;
+    margin:0 auto;
 }
 
