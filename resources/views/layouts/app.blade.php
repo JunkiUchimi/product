@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/accordion.css')  }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/center.css')  }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/title.css')  }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -16,7 +17,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    
     <body class="font-sans antialiased">
+        
         <div class="min-h-screen bg-gray-100">
          @include('layouts.navigation')
 

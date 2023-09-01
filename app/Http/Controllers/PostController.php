@@ -21,15 +21,18 @@ public function show(Post $post)
 
   public function index(Post $post)
 {
+    if(\Auth::id() == 1){
     return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
-    }
+    }}
 public function create()
 {
     return view('posts.create');
 }
 public function store(Request $request, Post $post)
 {
+    
     $input = $request['post'];
+    //dd($post->fill($input));
     $post->fill($input)->save();
     return redirect('/posts/' . $post->id);
 }

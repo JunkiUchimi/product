@@ -10,9 +10,10 @@ class Post extends Model
 {
     use HasFactory;
     
-    protected $fillable = [
+    protected $fillable = [ //書き込みを許可（データベースに値を入れることができるようになる）
          'title',
          'body',
+         'price',
          ];
     public function getPaginateByLimit(int $limit_count = 10)
 {

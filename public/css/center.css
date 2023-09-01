@@ -1,5 +1,5 @@
 .centered-content {
     text-align: center; /* テキストを水平方向に中央に寄せる */
     margin: 0 auto; /* 要素を水平方向に中央に配置 */
-    max-width: 800px; /* 必要に応じて最大幅を指定 */
+    max-width: 1000px; /* 必要に応じて最大幅を指定 */
 }
