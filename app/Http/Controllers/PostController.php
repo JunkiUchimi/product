@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Cloudinary;
 
 class PostController extends Controller
 {
@@ -19,11 +20,12 @@ public function show(Post $post)
  //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
 }
 
-  public function index(Post $post)
+public function index(Post $post)
 {
     if(\Auth::id() == 1){
     return view('posts.index')->with(['posts' => $post->getPaginateByLimit()]);
-    }}
+    } 
+}
 public function create()
 {
     return view('posts.create');
@@ -31,8 +33,11 @@ public function create()
 public function store(Request $request, Post $post)
 {
     
+    //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入
     $input = $request['post'];
+    $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath(); 
     //dd($post->fill($input));
+    $input += ['image_url' => $image_url];
     $post->fill($input)->save();
     return redirect('/posts/' . $post->id);
 }

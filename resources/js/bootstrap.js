@@ -1,6 +1,15 @@
 import _ from 'lodash';
 window._ = _;
+window.$ = window.jQuery = require('jquery');
 
+document.addEventListener('DOMContentLoaded', function() {
+    // スライダーの初期化
+    $('.slider').slick({
+        autoplay: true,
+        dots: true,
+        // 他のオプションを追加
+    });
+});
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

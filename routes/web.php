@@ -16,6 +16,9 @@ use App\Http\Controllers\PostController;
 Route::get('/posts/form', function () {
     return view('/posts/form');
 });
+Route::get('/slider', function () {
+    return view('slider');
+});
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}', [PostController::class ,'show']);
 Route::post('/posts', [PostController::class, 'store']);

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title', 10);
             $table->string('body', 200);
             $table->string('price', 200);
+            $table->string('image_url');
             $table->timestamps();
         });
     }

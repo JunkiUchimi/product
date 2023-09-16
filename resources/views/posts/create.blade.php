@@ -1,12 +1,8 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
-    <body>
+<x-app-layout>
+ <title>部屋情報の作成</title>
+ <div class="centered-content">
         <h1>部屋情報の作成画面</h1>
-        <form action="/posts" method="POST">
+        <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="title">
                 <h2>Title</h2>
@@ -19,11 +15,14 @@
             <div class="price">
                 <h2>Price</h2>
                 <input type="text" name="post[price]" placeholder="家賃を入れてください。"/>
+            </div><br>
+            <div class="image">
+            <input type="file" name="image">
             </div>
             <input type="submit" value="store"/>
-        </form>
+        </form><br>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
-    </body>
-</html>
+    </div>
+  </x-app-layout>
