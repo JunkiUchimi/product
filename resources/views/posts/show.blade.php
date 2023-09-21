@@ -2,31 +2,46 @@
       <title>{{ $post->title }}号室の詳細</title>
         <div class="centered-content">
             <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-           {{-- <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/price">Price</a></li> --}}
-            </ul>
-        </nav>
-    </header>
-        <h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <div class="content">
-            <div class="content__post">
-                <h2>本文</h2>
-                <p>{{ $post->body }}</p>    
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+               {{-- <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="/price">Price</a></li> --}}
+                </ul>
+            </nav>
+            </header>
+            <h1 class="title">
+                {{ $post->title }}
+            </h1>
+            <div class="content">
+                <div class="content__post">
+                    <p>{{ $post->body }}</p>    
+                </div>
             </div>
-        </div>
-        <h3 class="price">
-            {{ $post->price }}
-        </h3>
-        <div>
-            {{ $post->image_url }}
-         </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
+            <h3 class="price">
+               <p>家賃(月々): {{ $post->price }}円</p>
+            </h3>
+            <div>
+                <div class="show-image"><img src="{{ $post->image_url }}" alt="" /></div>
+            </div>
+            <div class="edit">
+                <a href="/posts/{{ $post->id }}/edit">編集</a>
+            </div>
+            <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="button" onclick="deletePost({{ $post->id }})">削除</button>
+            </form>
+            <script>
+                function deletePost(id) {
+                    'use strict'
+                    if (confirm('削除すると復元できません。\n本当に削除しますか?')) { 
+                        document.getElementById(`form_${id}`).submit();
+                    } 
+                }
+            </script>
+            <div class="footer">
+                <a href="/">戻る</a>
+            </div>
         </div>
 </x-app-layout>
