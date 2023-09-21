@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::delete('/posts/{post}', [PostController::class,'delete']);
+Route::post('/{id}/favorite',[App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.favorite');
+Route::delete('/{id}/unfavorite',[App\Http\Controllers\FavoriteController::class, 'destroy'])->name('favorites.unfavorite');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('index');

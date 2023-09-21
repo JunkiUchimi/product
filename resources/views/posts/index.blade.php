@@ -34,7 +34,24 @@
                 <div class='post' style="display: inline-block;">
                     <a href="/posts/{{ $post->id }}">{{ $post->title }}
                         <div class="small-image">
-                            <img src="{{ $post->image_url }}" alt="" />
+                            <div style="position: relative;">
+                                <img src="{{ $post->image_url }}" alt="" />
+                                <div style="position: absolute; top: 15%; left: 10%; transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.7); padding: 10px;">
+                                    {{--いいね機能--}}
+                                    @if (Auth::id() != $post->user_id)
+                                        @if (Auth::user()->is_favorite($post->id))
+                                            {!! Form::open(['route' => ['favorites.unfavorite', $post->id], 'method' => 'delete']) !!}
+                                            {!! Form::submit('★', ['class' => 'button btn btn-warning']) !!}
+                                            {!! Form::close() !!}
+                                        @else
+                                            {!! Form::open(['route' => ['favorites.favorite', $post->id]]) !!}
+                                            {!! Form::submit('☆', ['class' => 'button btn btn-success']) !!}
+                                            {!! Form::close() !!}
+                                        @endif
+                                    @endif
+                                </div>
+                            </div>
+                           
                         </div>
                     </a>
                 </div>
