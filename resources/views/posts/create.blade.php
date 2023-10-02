@@ -20,7 +20,7 @@
                 <h2>部屋の写真(画像のアップロード)</h2>
             <input type="file" name="image">
             </div>
-            <input type="submit" value="store"/>
+            <input type="submit" value="保存"/>
         </form><br>
         <div class="footer">
             <a href="/">戻る</a>

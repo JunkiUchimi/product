@@ -10,9 +10,11 @@
         <link rel="stylesheet" href="{{ asset('/css/accordion.css')  }}" >
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/center.css')  }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/font.css')  }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/header.css')  }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/split.css')  }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/swiper.css')  }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-      
-        
+
      {{--   <title>{{ config('app.name', 'Laravel') }}</title> --}}
 
         <!-- Fonts -->

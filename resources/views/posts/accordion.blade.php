@@ -15,4 +15,5 @@
     <div class="accordion-content">
         <p>申し訳ございませんがペットは不可となっております。</p>
     </div><br>
+</div> 
 <script src="{{ asset('js/accordion.js') }}"></script>

@@ -26,6 +26,9 @@ Route::get('/dashboard', function () {
 Route::delete('/posts/{post}', [PostController::class,'delete']);
 Route::post('/{id}/favorite',[App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.favorite');
 Route::delete('/{id}/unfavorite',[App\Http\Controllers\FavoriteController::class, 'destroy'])->name('favorites.unfavorite');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('post.show');
+Route::post('/posts/{post}/comments',[App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
+Route::delete('/comments/{comment}/destroy',[App\Http\Controllers\CommentController::class, 'destroy'])->name('comments.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('index');

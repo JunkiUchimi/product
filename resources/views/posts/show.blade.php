@@ -5,8 +5,7 @@
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-               {{-- <li><a href="/gallery">Gallery</a></li>
-                    <li><a href="/price">Price</a></li> --}}
+                    <li><a href="/gallery">Gallery</a></li>
                 </ul>
             </nav>
             </header>
@@ -24,6 +23,33 @@
             <div>
                 <div class="show-image"><img src="{{ $post->image_url }}" alt="" /></div>
             </div>
+            
+            <h1>コメント</h1>
+            <ul>
+                <li>
+                    <form method="POST" action="{{route('comments.store', $post)}}">
+                        @csrf
+                        <input type="text" name="body"> 
+                        <button>投稿</button>
+                        @error('body')
+                        {{$message}}
+                        @enderror
+                    </form>
+                </li>
+            </ul>
+            <ul>
+                @foreach($post->comments()->latest()->get() as $comment)
+                <li>
+                    {{$comment->body}}
+                    <form method="post" action="{{route('comments.destroy', $comment)}}">
+                        @method('DELETE')
+                        @csrf
+                        <button>削除</button>
+                    </form>
+                </li>
+                @endforeach
+            </ul>
+            
             <div class="edit">
                 <a href="/posts/{{ $post->id }}/edit">編集</a>
             </div>
@@ -40,7 +66,7 @@
                     } 
                 }
             </script>
-            <div class="footer">
+            <d  iv class="footer">
                 <a href="/">戻る</a>
             </div>
         </div>
