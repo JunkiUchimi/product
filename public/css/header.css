@@ -1,0 +1,29 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* メニューバーの背景色 */
+    color: #fff; /* メニューバーテキストの色 */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px; /* メニューアイテムの間隔 */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* メニューテキストの色 */
+    font-size: 30px;
+}
+
+/* メニューバーの下にマージンを設定 */
+body {
+    margin-top: 80px; /* メニューバーの高さに応じて調整 */
+}

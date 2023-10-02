@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-         Schema::table('comments', function (Blueprint $table) {
-         $table->foreignId('user_id')->constrained();   
-         $table->foreignId('posts_id')->constrained();   
-        //'category_id' は 'categoriesテーブル' の 'id' を参照する外部キーです
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 10);
+            $table->string('body', 200);
+            $table->string('price', 200);
+            $table->string('image_url');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 };
